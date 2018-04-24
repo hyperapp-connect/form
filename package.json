@@ -12,10 +12,7 @@
     "format": "f -w",
     "format:check": "f"
   },
-  "files": [
-    "src/**",
-    "dist/**"
-  ],
+  "files": ["src/**"],
   "devDependencies": {
     "@magic/test": "github:magic/test"
   },
