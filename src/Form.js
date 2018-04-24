@@ -6,7 +6,7 @@ import { Input } from './Input'
 
 import { validateForm } from './lib/validateInput'
 
-export const submit = (state, actions) => evt => {
+export const submit = (form, state, actions) => evt => {
   evt.preventDefault()
 
   const { hasErrored } = validateForm({ evt, form, state })
@@ -28,7 +28,7 @@ export const Form = ({ actions, errors, state, form, title, submitValue }) => (
     novalidate
     action={state.action}
     method={state.method || 'POST'}
-    onsubmit={submit(state, actions)}
+    onsubmit={submit(form, state, actions)}
     onchange={evt => form.validate({ evt, form, state })}
   >
     {title && (
