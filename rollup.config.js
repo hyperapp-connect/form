@@ -16,7 +16,6 @@ module.exports = {
     format: 'iife',
     sourcemap: true,
   },
-  // watch: env === 'development',
   plugins: [
     // enable jsx in hyperapp
     jsx({ factory: 'h' }),
