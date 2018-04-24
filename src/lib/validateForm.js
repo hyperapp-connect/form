@@ -1,4 +1,4 @@
-const validateInput = require('./validateInput')
+import validateInput from './validateInput'
 
 export const validateForm = ({ evt, state }) => {
   const errors = {}
