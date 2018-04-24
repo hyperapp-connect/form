@@ -4,7 +4,7 @@ import { ErrorMsg } from './ErrorMsg'
 
 import { Input } from './Input'
 
-import { validateForm } from './lib/validateInput'
+import { validateForm } from './lib'
 
 export const submit = (form, state, actions) => evt => {
   evt.preventDefault()
