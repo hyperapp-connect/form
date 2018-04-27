@@ -9,7 +9,7 @@ import { validate } from './lib'
 export const submit = (action, state) => evt => {
   evt.preventDefault()
 
-  const { hasErrored } = validate({ evt, state })
+  const { hasErrored, errors } = validate({ evt, state })
 
   if (hasErrored) {
     return errors
