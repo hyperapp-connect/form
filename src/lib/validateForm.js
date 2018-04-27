@@ -1,6 +1,6 @@
 import validateInput from './validateInput'
 
-export const validateForm = ({ evt, state }) => {
+export const validate = ({ evt, state }) => {
   const errors = {}
   let hasErrored = false
 
@@ -24,4 +24,4 @@ export const validateForm = ({ evt, state }) => {
   return { errors, hasErrored }
 }
 
-export default validateForm
+export default validate

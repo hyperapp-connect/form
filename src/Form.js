@@ -4,15 +4,15 @@ import { ErrorMsg } from './ErrorMsg'
 
 import { Input } from './Input'
 
-import { validateForm } from './lib'
+import { validate } from './lib'
 
-export const submit = (form, state, actions) => evt => {
+export const submit = (action, state) => evt => {
   evt.preventDefault()
 
-  const { hasErrored } = validateForm({ evt, form, state })
+  const { hasErrored } = validate({ evt, state })
 
   if (hasErrored) {
-    return
+    return errors
   }
 
   const data = {}
@@ -20,16 +20,16 @@ export const submit = (form, state, actions) => evt => {
     data[key] = state.inputs[key].value
   })
 
-  form.submit(data)
+  action(data)
 }
 
-export const Form = ({ actions, errors, state, form, title, submitValue }) => (
+export const Form = ({ action, actions, state, title, submitValue }) => (
   <form
     novalidate
     action={state.action}
     method={state.method || 'POST'}
-    onsubmit={submit(form, state, actions)}
-    onchange={evt => form.validate({ evt, form, state })}
+    onsubmit={submit(action, state)}
+    onchange={evt => actions.validate({ evt, state })}
   >
     {title && (
       <legend>
